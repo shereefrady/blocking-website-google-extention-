@@ -1,0 +1,52 @@
+{
+    "manifest_version": 2,
+    "name": "Block Extention",
+    "version": "1.0",
+    "description": "this Extension block some Sites that you choose  !",
+    
+    "icons":
+    {
+        "512":"Block-512.png",
+        "48":"Block-512.png",
+        "16":"Block-512.png"
+       
+
+    },
+
+    "browser_action":
+    {
+        "default_icon":"Block-512.png",
+        "default_popup":"popup.html"
+
+    },
+     
+    
+    "permissions":
+    [
+        "storage",
+        "notifications",
+        "contextMenus",
+        "tabs",
+        "activeTab",
+        "https://www.facebook.com/"
+        
+     
+    ],
+    "options_page":"options.html",
+
+    "background":
+    {
+      "scripts":["eventPage.js"],
+      "persistent":true 
+    },
+    "content_scripts":
+    [
+        {
+           "matches":["https://www.facebook.com/*"],
+           
+           "js":["passwordPage.js"]
+
+        }
+    ]
+
+}
